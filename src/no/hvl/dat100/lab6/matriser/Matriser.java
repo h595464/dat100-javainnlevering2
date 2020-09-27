@@ -4,12 +4,9 @@ public class Matriser {
 
 	// a)
 	public static void skrivUt(int[][] matrise) {
-		
 		for (int i=0; i<matrise.length; i++) {
-			for(int j=0;j<matrise.length; j++) {
-				
+			for(int j=0;j<matrise[i].length; j++) {
 				System.out.println(matrise[i][j]);
-			
 				}
 			}
 		}
@@ -17,15 +14,16 @@ public class Matriser {
 	// b)
 	public static String tilStreng(int[][] matrise) {
 
-		String s = "{";
+		String s = "";
 		for (int i = 0; i < matrise.length; i++){	
-			for (int j = 0; j <matrise.length; j++) {
-			s += matrise[i][j];
-			if (j<matrise.length-1)
-				s += ",";
+			for (int j = 0; j<matrise[i].length; j++) {
+				s += matrise[i][j] + " ";
+				if(j == matrise[i].length -1) {
+					s += "\n";
+				}
 			}
 		}
-		return s +="}";
+		return s;
 		
 	}
 
@@ -33,10 +31,8 @@ public class Matriser {
 	public static int[][] skaler(int tall, int[][] matrise) {
 			
 		for (int i=0; i<matrise.length; i++) {
-			for(int j=0;j<matrise.length; j++) {
-				i = i*tall;
-				j = j*tall;
-						
+			for(int j=0;j<matrise[i].length; j++) {
+				matrise[i][j] *= tall;	
 				}
 			}
 		return matrise;
@@ -44,16 +40,20 @@ public class Matriser {
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
+		if(a.length != b.length) {
+			return false;
+		}
 		
-		
-		for (int i=0; i<a.length && i<b.length; i++) {
-			for(int j=0;j<a.length && j<b.length; j++) {
-				if(a[i][j] == b[i][j])
-					return true;
-				
+		for (int i=0; i<a.length; i++) {
+			if(a[i].length != b[i].length) {
+				return false;
+			}
+			for(int j=0;j<a[i].length; j++) {
+				if(a[i][j] != b[i][j])
+					return false;
 				}
 			}
-			return false;
+			return true;
 		}
 	
 	// e)
