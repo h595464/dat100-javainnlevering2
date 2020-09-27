@@ -5,32 +5,56 @@ public class Matriser {
 	// a)
 	public static void skrivUt(int[][] matrise) {
 		
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
-	}
+		for (int i=0; i<matrise.length; i++) {
+			for(int j=0;j<matrise.length; j++) {
+				
+				System.out.println(matrise[i][j]);
+			
+				}
+			}
+		}
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
 
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
+		String s = "{";
+		for (int i = 0; i < matrise.length; i++){	
+			for (int j = 0; j <matrise.length; j++) {
+			s += matrise[i][j];
+			if (j<matrise.length-1)
+				s += ",";
+			}
+		}
+		return s +="}";
 		
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("skaler ikke implementert");
-	
+			
+		for (int i=0; i<matrise.length; i++) {
+			for(int j=0;j<matrise.length; j++) {
+				i = i*tall;
+				j = j*tall;
+						
+				}
+			}
+		return matrise;
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("erLik ikke implementert");
-	}
+		
+		
+		for (int i=0; i<a.length && i<b.length; i++) {
+			for(int j=0;j<a.length && j<b.length; j++) {
+				if(a[i][j] == b[i][j])
+					return true;
+				
+				}
+			}
+			return false;
+		}
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
